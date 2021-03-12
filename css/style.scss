@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #D04A18;
+}
+/*----------------------------------------------------------------------navbar----------------------------------------------------------------------------*/
+header {
+    display: flex;
+    width: 100%;
+    min-height: 3.7rem;
+    justify-content: space-between;
+    background-color: #D04A18;
+    color: white;
+    align-items: center;
+    
+    .logo {
+        margin: 0px 30px;
+        max-width: 40px;
+        max-height: 50px;
+        overflow-x: visible;
+        .lg {
+            width: 100%;
+        }
+    }
+    
+    nav {
+        margin: 0px 30px;
+    }
+    
+    ul {
+        display: flex;
+        list-style: none;
+        gap: 50px;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover{
+            color: black;
+        }
+    }
+    border-bottom: 2px solid grey;
+}
+
+/*----------------------------------------------------------------------the end of navbar----------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------the start of add books-----------------------------------------------------------------------------------*/
+
+.gen {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 20px;
+    background-color: white;
+    align-items: center;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: 4px 10px 2px black;
+    padding: 15px;
+    .title {
+        text-align: center;
+        .add {
+            font-size: 42px;
+        }
+    }
+    .first,.second,.third,.fourd,.five{
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
+        margin: 10px;
+        
+        .tl,.price,.pd_date,.UPLOAD_BOOKS,.authors{
+            width: 500px;
+            margin-left: 10px auto;
+            
+        }
+        #input_title,#input_price,#input_date,#selectAuthors{
+            min-height: 50px;
+            margin: 10px auto;
+            width: 490px;
+            
+        }
+      
+        .form {
+            display: flex;
+            #input_upload{
+                
+                min-height: 50px;
+            margin: 10px auto;
+            width: 490px;
+            }
+        }
+        #submit {
+            width: 170px;
+            min-height: 30px;
+            margin: 5px auto;
+        }
+    }
+    .icon {
+        width: 80px;
+        display: flex;
+        button {
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+            .icon_image {
+                display: flex;
+                
+                width: 100%;
+               
+            }
+        }
+    }
+    
+}
+
+
+
+/*-------------------------------------------------------------the end of add books-----------------------------------------------------------------------------------*/
+
+
+.book {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+    .bk {
+        font-size: 35px;
+        cursor: pointer;
+    }
+    
+}
+
+
+table {
+    width: 95%;
+    max-height: 40px;
+    background-color: white;
+    color: black;
+    margin: 60px auto;
+    padding: 0px 30px;
+    border-radius: 10px;
+    box-shadow: 10px 4px 3px black;
+        tr {
+            
+            td {
+                text-align: center;
+                width: 100px;
+                font-family: 'Courier New', Courier, monospace;
+                button {
+                    background-color: white;
+                    border: none;
+                    cursor: pointer;
+                    &:focus {
+                        outline: hidden;
+                    }
+                }
+                img {
+                    max-width: 100%;
+                    max-height: 150px;
+                }
+                
+                img:hover{
+                    
+                    filter: grayscale(2);
+                }
+                
+            }
+           
+        }
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

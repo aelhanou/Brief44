@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+$orangeColor:#D04A18;
+$whiteColor:white;
+$blackColor: black;
+
+#iconMenu {
+    display: none;
+}
+
+
+#menuMobile {
+    display: none;
+}
+
+.gallery {
+    text-align: center;
+    margin: 20px;
+    .gy{
+        font-size: 35px;
+        color: $whiteColor;
+    }
+}
+
+
+.filter {
+    border: 2px solid $blackColor;
+    display: flex;
+    
+    width: 40%;
+    margin: 10px auto;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: $whiteColor;
+    color: $orangeColor;
+    border-radius: 10px;
+    box-shadow: 10px 4px 3px $blackColor;
+    
+    .filterByName {
+        margin-left: 20px;
+        display: flex;
+        gap: 10px;
+
+        select{
+            height: 30px;
+            width: 90px;
+            border-radius: 9px;
+            padding: 0px 0px 0px 10px;
+            color: $orangeColor;
+        }
+    }
+    .maxMin{
+        display: flex;
+        margin-right: 100px;
+        gap: 10px;
+        .min {
+            display: flex;
+            gap: 5px;
+            #mn {
+                max-width: 50px;
+            }
+        }
+        .max{
+            display: flex;
+            gap: 5px;
+            #mx{
+                max-width: 50px;
+            }
+        }
+    }
+}
+
+
+.genGallery, #Dont ,#I,#care {
+    width: 80%;
+    display: flex;
+    margin: 40px auto;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+
+    .book1{
+        border: 1px solid $blackColor;
+        padding: 10px;
+        background-color: $whiteColor;
+        border-radius: 10px;
+        box-shadow: 10px 4px 3px $blackColor;
+        .image1 {
+            overflow: hidden;
+            width: 264px;
+            img {
+                border-radius: 10px;
+                width: 263px;
+               
+            }
+            img:hover{
+                filter: grayscale(2);
+                transform: scale(1.2);
+                
+            }
+        }
+
+        .nameOfBook1 {
+            margin: 4px auto;
+            .namebk1{
+                text-align: center;
+                font-size: 24px;
+            }
+        }
+
+        .PriceDate1{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+
+
+    }
+}
+
+
+
+/*responsive nav bar*/ 
+@media only screen and (max-width:600px)
+{
+    
+  
+#iconMenu {
+    display: block;
+}
+
+
+#menuMobile {
+    display: flex;
+    
+}
+    .disable {
+        display: none;  
+    }
+    .nav {
+       display: flex;
+       
+    }
+    .bar  img {
+        display: block;
+        width: 50px;
+        position: absolute;
+        top: 8px;
+        right: 10px;
+    }
+    .menuMobile {
+        position: absolute;
+        min-height: 100vh;
+        width: 100%;
+        background-color: $orangeColor;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        font-size: 30px;
+        
+    }
+
+    .menuMobile .mobile {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 200px;
+        gap: 40px;
+    }
+
+    .menuMobile .mobile li {
+        list-style-type: none;
+        
+    }
+    
+    .menuMobile .mobile li a{
+        text-decoration: none;
+        color: $whiteColor;
+    }
+}
+
+
+
+
+/*footer*/ 
+
+
+
+
+footer{
+    border-top: 3px solid white;
+  display: flex;
+    width: 100%;
+    margin: 40px auto;
+    flex-direction: column;
+    
+    color: $whiteColor;
+    gap: 20px;
+
+    .para {
+        margin: 20px auto;
+        font-size: 34px;
+       
+    }
+
+    .icons {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+
+    }
+    a:hover{
+        background-color: black;
+        border-radius: 50%;
+        max-height: 44px;
+        overflow: hidden;
+    }
+   
+}
+.copyright{
+    background-color: $whiteColor;
+    color: $orangeColor;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+
+
+/*responsive filter*/ 
+@media only screen and (max-width:1386px)
+{
+    .filter {
+        
+        flex-wrap: wrap;
+        
+
+        .filterByName {
+            margin: 0px auto;
+        }
+        .maxMin{
+            
+            margin: 0px auto;
+        }
+    }
+
+}
+
+@media only screen and (max-width:682px)
+{
+    .filter {
+        
+        .filterByName {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2px auto;
+        }
+        .maxMin{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2px auto;
+            .min {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 2px auto;
+                
+            }
+            .max{
+                display: flex;
+                flex-wrap: wrap;
+                margin: 2px auto;
+               
+            }
+
+        }
+    }
+
+}

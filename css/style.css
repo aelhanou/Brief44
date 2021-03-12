@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #D04A18;
+}
+
+/*----------------------------------------------------------------------navbar----------------------------------------------------------------------------*/
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: 3.7rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #D04A18;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid grey;
+}
+
+header .logo {
+  margin: 0px 30px;
+  max-width: 40px;
+  max-height: 50px;
+  overflow-x: visible;
+}
+
+header .logo .lg {
+  width: 100%;
+}
+
+header nav {
+  margin: 0px 30px;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+
+header ul a {
+  text-decoration: none;
+  color: white;
+}
+
+header ul a:hover {
+  color: black;
+}
+
+/*----------------------------------------------------------------------the end of navbar----------------------------------------------------------------------------*/
+/*-------------------------------------------------------------the start of add books-----------------------------------------------------------------------------------*/
+.gen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  gap: 20px;
+  background-color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px auto;
+  border-radius: 8px;
+  -webkit-box-shadow: 4px 10px 2px black;
+          box-shadow: 4px 10px 2px black;
+  padding: 15px;
+}
+
+.gen .title {
+  text-align: center;
+}
+
+.gen .title .add {
+  font-size: 42px;
+}
+
+.gen .first, .gen .second, .gen .third, .gen .fourd, .gen .five {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px;
+}
+
+.gen .first .tl, .gen .first .price, .gen .first .pd_date, .gen .first .UPLOAD_BOOKS, .gen .first .authors, .gen .second .tl, .gen .second .price, .gen .second .pd_date, .gen .second .UPLOAD_BOOKS, .gen .second .authors, .gen .third .tl, .gen .third .price, .gen .third .pd_date, .gen .third .UPLOAD_BOOKS, .gen .third .authors, .gen .fourd .tl, .gen .fourd .price, .gen .fourd .pd_date, .gen .fourd .UPLOAD_BOOKS, .gen .fourd .authors, .gen .five .tl, .gen .five .price, .gen .five .pd_date, .gen .five .UPLOAD_BOOKS, .gen .five .authors {
+  width: 500px;
+  margin-left: 10px auto;
+}
+
+.gen .first #input_title, .gen .first #input_price, .gen .first #input_date, .gen .first #selectAuthors, .gen .second #input_title, .gen .second #input_price, .gen .second #input_date, .gen .second #selectAuthors, .gen .third #input_title, .gen .third #input_price, .gen .third #input_date, .gen .third #selectAuthors, .gen .fourd #input_title, .gen .fourd #input_price, .gen .fourd #input_date, .gen .fourd #selectAuthors, .gen .five #input_title, .gen .five #input_price, .gen .five #input_date, .gen .five #selectAuthors {
+  min-height: 50px;
+  margin: 10px auto;
+  width: 490px;
+}
+
+.gen .first .form, .gen .second .form, .gen .third .form, .gen .fourd .form, .gen .five .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gen .first .form #input_upload, .gen .second .form #input_upload, .gen .third .form #input_upload, .gen .fourd .form #input_upload, .gen .five .form #input_upload {
+  min-height: 50px;
+  margin: 10px auto;
+  width: 490px;
+}
+
+.gen .first #submit, .gen .second #submit, .gen .third #submit, .gen .fourd #submit, .gen .five #submit {
+  width: 170px;
+  min-height: 30px;
+  margin: 5px auto;
+}
+
+.gen .icon {
+  width: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gen .icon button {
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.gen .icon button:focus {
+  outline: none;
+}
+
+.gen .icon button .icon_image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+/*-------------------------------------------------------------the end of add books-----------------------------------------------------------------------------------*/
+.book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.book .bk {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+table {
+  width: 95%;
+  max-height: 40px;
+  background-color: white;
+  color: black;
+  margin: 60px auto;
+  padding: 0px 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 4px 3px black;
+          box-shadow: 10px 4px 3px black;
+  font-size: 30px;
+}
+
+table tr td {
+  text-align: center;
+  width: 100px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+table tr td button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+table tr td button:focus {
+  outline: hidden;
+}
+
+table tr td img {
+  max-width: 100%;
+  max-height: 150px;
+}
+
+table tr td img:hover {
+  -webkit-filter: grayscale(2);
+          filter: grayscale(2);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #D04A18;
+}
+
+/*----------------------------------------------------------------------navbar----------------------------------------------------------------------------*/
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: 3.7rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #D04A18;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid grey;
+}
+
+header .logo {
+  margin: 0px 30px;
+  max-width: 40px;
+  max-height: 50px;
+  overflow-x: visible;
+}
+
+header .logo .lg {
+  width: 100%;
+}
+
+header nav {
+  margin: 0px 30px;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+
+header ul a {
+  text-decoration: none;
+  color: white;
+}
+
+/*----------------------------------------------------------------------the end of navbar----------------------------------------------------------------------------*/
+/*-------------------------------------------------------------the start of add books-----------------------------------------------------------------------------------*/
+.gen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  gap: 20px;
+  background-color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px auto;
+  border-radius: 8px;
+  -webkit-box-shadow: 4px 10px 2px black;
+          box-shadow: 4px 10px 2px black;
+  padding: 15px;
+}
+
+.gen .title {
+  text-align: center;
+}
+
+.gen .title .add {
+  font-size: 42px;
+}
+
+.gen .first, .gen .second, .gen .third, .gen .fourd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px;
+}
+
+.gen .first .name, .gen .first .birthday, .gen .first .UPLOAD_Authors, .gen .second .name, .gen .second .birthday, .gen .second .UPLOAD_Authors, .gen .third .name, .gen .third .birthday, .gen .third .UPLOAD_Authors, .gen .fourd .name, .gen .fourd .birthday, .gen .fourd .UPLOAD_Authors {
+  width: 500px;
+  margin-left: 10px auto;
+}
+
+.gen .first #input_name, .gen .first #input_birthday, .gen .second #input_name, .gen .second #input_birthday, .gen .third #input_name, .gen .third #input_birthday, .gen .fourd #input_name, .gen .fourd #input_birthday {
+  min-height: 50px;
+  margin: 10px auto;
+  width: 490px;
+}
+
+.gen .first .form, .gen .second .form, .gen .third .form, .gen .fourd .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gen .first .form #input_upload, .gen .second .form #input_upload, .gen .third .form #input_upload, .gen .fourd .form #input_upload {
+  min-height: 50px;
+  margin: 10px auto;
+  width: 490px;
+}
+
+.gen .first #submit, .gen .second #submit, .gen .third #submit, .gen .fourd #submit {
+  width: 170px;
+  min-height: 30px;
+  margin: 5px auto;
+}
+
+.gen .icon {
+  width: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gen .icon button {
+  border-radius: 50%;
+}
+
+.gen .icon button .icon_image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+/*-------------------------------------------------------------the end of add books-----------------------------------------------------------------------------------*/
+.author {
+  text-align: center;
+}
+
+.author .au {
+  font-size: 35px;
+}
+
+table {
+  width: 95%;
+  max-height: 40px;
+  background-color: white;
+  color: black;
+  margin: 60px auto;
+  padding: 0px 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 4px 3px black;
+          box-shadow: 10px 4px 3px black;
+}
+
+table tr td {
+  text-align: center;
+  width: 100px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+table tr td button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+table tr td button:focus {
+  outline: hidden;
+}
+
+table tr img {
+  max-width: 100%;
+  max-height: 150px;
+}
+
+table tr img:hover {
+  -webkit-filter: grayscale(2);
+          filter: grayscale(2);
+}
+/*# sourceMappingURL=athors.css.map */

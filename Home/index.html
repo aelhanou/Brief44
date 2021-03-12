@@ -1,0 +1,159 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Scss/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <title>Document</title>
+
+</head>
+
+<body>
+
+
+  <!--  Navbar   -->
+  <img class="log" src="../Home/my images/logo.png" alt="">
+  <div class="first-container">
+    
+      <ul class="nav-ul">
+        <li> <a  href="index.html">Home</a></li>
+        <li> <a  href="../gallery.php"> Gallery</a></li>
+        <li> <a  href="../index.php"> Books</a></li>
+        <li> <a  href="../authors.php"> Authors</a></li>
+        <li><img id="icon-nave" class="icon-nav" src="../Home/icons/book-reader-solid.svg" alt=""></li>
+      </ul>
+      <ul id="nav-ul-1" class="nav-ul-1">
+        <li> <a id="a1" href="index.html">Home</a></li>
+        <li> <a id="a1" href="../gallery.php"> Gallery</a></li>
+        <li> <a id="a1" href="../index.php"> Books</a></li>
+        <li> <a id="a1" href="../authors.php"> Authors</a></li>
+       
+      </ul>
+
+       <!--  Landing page   -->
+
+      <h1 class="first-h1">Books are the </h1>
+      <h1 class="second-h1">Most powerfull</h1>
+      <h1 class="first-h1">Weapon</h1>
+      <button class="btn"> Learn More</button>
+
+    
+
+  </div>
+     <!--  second part  -->
+
+     <div class="second-container">
+
+    <h2> We provide <span>The Best</span> </h2>
+    <h2>Educational Environment</h2>
+    <p class="lorem"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+
+
+    <div class="boxes">
+    
+    <div class="box">
+    <img class="icon" src="../Home/icons/book-reader-solid.svg" alt="">
+     <h3>Expert Authors</h3>
+     <p class="lorem-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore .</p>
+    </div>
+    <div class="box">
+     <img class="icon" src="../Home/icons/book-reader-solid.svg" alt="">
+     <h3>100+Books</h3>
+     <p class="lorem-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore .</p>
+    </div>
+    <div class="box">
+     <img class="icon" src="../Home/icons/book-reader-solid.svg" alt="">
+     <h3>Online Education</h3>
+     <p class="lorem-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore .</p>
+    </div>
+    </div>
+
+    <h2> Our <span>Expert</span>Authors </h2>
+    <div class="boxes-1">
+     
+      <div class="box-1">
+        <div class="img">
+          <img class="img-2" src="../Home/my images/JK-Rowling.jpg" alt="">
+        </div>
+          <h4>JK-Rowling</h4>
+        <p class="lorem-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .</p>
+   
+      </div>
+
+      <div class="box-1">
+        <div class="img">
+          <img class="img-2" src="../Home/my images/robert.jpg" alt="">
+        </div>
+        <h4>Robert</h4>
+       <p class="lorem-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .</p>
+
+      </div>
+      <div class="box-1">
+        <div class="img">
+          <img class="img-2" src="../Home/my images/dan.jpg" alt="">
+        </div>
+        <h4>Dan</h4>
+        <p class="lorem-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .</p>
+
+
+      </div>
+    </div>
+     </div>
+    
+    </body>
+       <!-- footer -->
+    <footer>
+      <p class="s-media">Social Media</p>
+      <div class="icons">
+        <img src="../Home/icons/icons8-facebook.svg" alt=""  class="social-media">
+      <img src="../Home/icons/icons8-instagram.svg" alt="" class="social-media">
+      <img src="../Home/icons/icons8-twitter.svg" alt="" class="social-media">
+      </div>
+      
+    </footer>
+    <p class="copyright">Copyright by books in the books</p>
+
+
+
+
+    
+  <script>
+    var icon = document.getElementById("icon-nave")
+    var navUl1 = document.getElementById("nav-ul-1");
+    var nav_ul = document.querySelector(".nav-ul");
+    navUl1.style.display = 'none'; 
+    icon.addEventListener("click",function(){
+      if(navUl1.style.display == 'flex')
+      {
+        navUl1.style.display = 'none'; 
+        nav_ul.style.marginBottom="7rem";
+      }
+      else
+      {
+        navUl1.style.display = 'flex';
+        nav_ul.style.marginBottom="0px";
+
+        
+      }
+    })
+    
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

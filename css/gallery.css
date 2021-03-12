@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#iconMenu {
+  display: none;
+}
+
+#menuMobile {
+  display: none;
+}
+
+.gallery {
+  text-align: center;
+  margin: 20px;
+}
+
+.gallery .gy {
+  font-size: 35px;
+  color: white;
+}
+
+.filter {
+  border: 2px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+  margin: 10px auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  color: #D04A18;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 4px 3px black;
+          box-shadow: 10px 4px 3px black;
+}
+
+.filter .filterByName {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.filter .filterByName select {
+  height: 30px;
+  width: 90px;
+  border-radius: 9px;
+  padding: 0px 0px 0px 10px;
+  color: #D04A18;
+}
+
+.filter .maxMin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 100px;
+  gap: 10px;
+}
+
+.filter .maxMin .min {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.filter .maxMin .min #mn {
+  max-width: 50px;
+}
+
+.filter .maxMin .max {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.filter .maxMin .max #mx {
+  max-width: 50px;
+}
+
+.genGallery, #Dont, #I, #care {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 40px auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.genGallery .book1, #Dont .book1, #I .book1, #care .book1 {
+  border: 1px solid black;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 4px 3px black;
+          box-shadow: 10px 4px 3px black;
+}
+
+.genGallery .book1 .image1, #Dont .book1 .image1, #I .book1 .image1, #care .book1 .image1 {
+  overflow: hidden;
+  width: 264px;
+}
+
+.genGallery .book1 .image1 img, #Dont .book1 .image1 img, #I .book1 .image1 img, #care .book1 .image1 img {
+  border-radius: 10px;
+  width: 263px;
+}
+
+.genGallery .book1 .image1 img:hover, #Dont .book1 .image1 img:hover, #I .book1 .image1 img:hover, #care .book1 .image1 img:hover {
+  -webkit-filter: grayscale(2);
+          filter: grayscale(2);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.genGallery .book1 .nameOfBook1, #Dont .book1 .nameOfBook1, #I .book1 .nameOfBook1, #care .book1 .nameOfBook1 {
+  margin: 4px auto;
+}
+
+.genGallery .book1 .nameOfBook1 .namebk1, #Dont .book1 .nameOfBook1 .namebk1, #I .book1 .nameOfBook1 .namebk1, #care .book1 .nameOfBook1 .namebk1 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.genGallery .book1 .PriceDate1, #Dont .book1 .PriceDate1, #I .book1 .PriceDate1, #care .book1 .PriceDate1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+/*responsive nav bar*/
+@media only screen and (max-width: 600px) {
+  #iconMenu {
+    display: block;
+  }
+  #menuMobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .disable {
+    display: none;
+  }
+  .nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .bar img {
+    display: block;
+    width: 50px;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+  }
+  .menuMobile {
+    position: absolute;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #D04A18;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 30px;
+  }
+  .menuMobile .mobile {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: 200px;
+    gap: 40px;
+  }
+  .menuMobile .mobile li {
+    list-style-type: none;
+  }
+  .menuMobile .mobile li a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+/*footer*/
+footer {
+  border-top: 3px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 40px auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  gap: 20px;
+}
+
+footer .para {
+  margin: 20px auto;
+  font-size: 34px;
+}
+
+footer .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 25px;
+}
+
+footer a:hover {
+  background-color: black;
+  border-radius: 50%;
+  max-height: 44px;
+  overflow: hidden;
+}
+
+.copyright {
+  background-color: white;
+  color: #D04A18;
+  text-align: center;
+  font-size: 22px;
+}
+
+/*responsive filter*/
+@media only screen and (max-width: 1386px) {
+  .filter {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .filter .filterByName {
+    margin: 0px auto;
+  }
+  .filter .maxMin {
+    margin: 0px auto;
+  }
+}
+
+@media only screen and (max-width: 682px) {
+  .filter .filterByName {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 2px auto;
+  }
+  .filter .maxMin {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 2px auto;
+  }
+  .filter .maxMin .min {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 2px auto;
+  }
+  .filter .maxMin .max {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 2px auto;
+  }
+}
+/*# sourceMappingURL=gallery.css.map */
