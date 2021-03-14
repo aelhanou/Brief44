@@ -2,9 +2,10 @@
      session_start();
 ?>
 <?php 
-    
+    $a = 0;
     $title = $price = $pd_date = $image =$authors= '';
     include('db_connect.php');
+    
     $errors = array('name' => '','price' => '','pd_date' => '','input_upload' => '','authors' => '');
     if(isset($_POST['add']))
     {
@@ -73,62 +74,62 @@
         $image = mysqli_real_escape_string($connect,$_POST['input_upload']);
        }
     
-       $nameOfAuthors = "SELECT * FROM authors";
-            $sqlAuthors = mysqli_query($connect,$nameOfAuthors);
-            $resAuthors = mysqli_fetch_all($sqlAuthors,MYSQLI_ASSOC);
-
-              for($i = 0;$i< count($resAuthors);$i++)
-              {
-                  if($authors1 == $resAuthors[$i]['name'])
-                  {
-                    $id_authors =   $resAuthors[$i]['id'];
-                  }
-              }
+      
        if(!array_filter($errors))
        {
        // $errors = array('name' => $title,'price' => $price,'pd_date' => $pd_date,'input_upload' => $image,'authors' => $authors1);
     
         //insert the data
         
-              $id_book = $_SESSION['id'];
+              
                
-              $sql = "INSERT INTO books(title,price,Producte_date,Image,book_fk) VALUES('$title','$price','$pd_date','$image','$id_book')";
-              $sqlBookAuthors = "INSERT INTO booksauthors(id_books,id_authors) VALUES('$id_book',$id_authors)";
+              $sql = "INSERT INTO books(title,price,Producte_date,Image) VALUES('$title','$price','$pd_date','$image')";
 
+              
             // $nameOfAuthors = "SELECT * FROM authors";
             // $sqlAuthors = mysqli_query($connect,$nameOfAuthors);
             // $resAuthors = mysqli_fetch_all($connect,$sqlAuthors);
 
               if(mysqli_query($connect,$sql))
               {
-                header("location: index.php");
-                  
+                    header("location: index.php");
+                
               }
               else
               {
                   echo "eroor" . mysqli_error($connect);
                   
               }
+                $sql = 'SELECT * FROM books';
+                $res = mysqli_query($connect,$sql);
+                $books = mysqli_fetch_all($res,MYSQLI_ASSOC);
 
+
+              $id_book = $books[count($books) - 1]['id'];
+              $nameOfAuthors = "SELECT * FROM authors";
+              $sqlAuthors = mysqli_query($connect,$nameOfAuthors);
+              $resAuthors = mysqli_fetch_all($sqlAuthors,MYSQLI_ASSOC);
+  
+                for($i = 0;$i< count($resAuthors);$i++)
+                {
+                    if($authors1 == $resAuthors[$i]['name'])
+                    {
+                      $id_authors =   $resAuthors[$i]['id'];
+                    }
+                }
+                
+              $sqlBookAuthors = "INSERT INTO booksauthors(id_books,id_authors) VALUES('$id_book',$id_authors)";
               mysqli_query($connect,$sqlBookAuthors);
-              
+
 
               
-            
-              
+
        }
        
       
-    
-    // else
-    // {
-    //     echo "error";
-    // }
-
 }
 
-            
-
+    
     if(isset($_POST['Delete']))
     {
         
@@ -144,6 +145,8 @@
         {
             echo "error" . mysqli_error($connect);
         }
+        $sqlBookAuthors = "DELETE FROM booksauthors wHere id = $id_to_delete";
+              mysqli_query($connect,$sqlBookAuthors);
 
     }
 
@@ -239,7 +242,7 @@
         <!-- the end of navbar -->
 
     <!-- the start of add books -->
-    <form action="index.php" method="post"> 
+    <form action="index.php?id=<?php echo $books[count($books) - 1]['id']?>" method="post"> 
     <div class="gen">
         <div class="title">
             <h1 class="add" >ADD BOOKS</h1>
@@ -311,7 +314,7 @@
     <tr>
   
     <?php for($i = 0;$i < count($books);$i++){?>
-      <td><?php echo $_SESSION['id'] = $books[$i]['id']?></td>
+      <td><?php echo $books[$i]['id']?></td>
       <td><?php echo $books[$i]['title']?></td>
       <td><?php echo $books[$i]['price']."$"?></td>
       <td><?php echo $books[$i]['Producte_Date']?></td>

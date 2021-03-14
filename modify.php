@@ -6,7 +6,7 @@
     
     $title = $price = $pd_date = $image = '';
     include('db_connect.php');
-    include('modify3.php');
+    
     $errors = array('name' => '','price' => '','pd_date' => '','input_upload' => '');
     if(isset($_POST['add']))
     {

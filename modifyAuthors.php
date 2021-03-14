@@ -44,54 +44,40 @@
         {
                 $image = mysqli_real_escape_string($connect,$_POST['image']);
         }
-        if(!array_filter($errors1))
-        {
-            $errors1 = array('name' => $title,'birthday' => $birthday,'image' => $image);
-
-        
-            $sql1 = "INSERT INTO authors(name,Birthday,image) VALUES ('$title','$birthday','$image')";
-            
-            if(mysqli_query($connect,$sql1))
-            {
-                header("location: authors.php");
-                
-            }
-            else
-            {
-                echo "error" . mysqli_error($connect);
-            }
-            
-            
-        }
+       
     }
-    
-    if(isset($_POST['Delete']))
+
+    if(isset($_GET['id']))
     {
-        
-        $id_to_delete = mysqli_real_escape_string($connect,$_POST['Delete']);
+        $id = $_GET['id'];
 
-        $sql = "DELETE FROM authors WHERE id = $id_to_delete";
+        $sql = "SELECT * FROM authors WHERE id=$id";
 
-        if(mysqli_query($connect,$sql))
-        {
-            header("location: authors.php");
-        }
-        else
-        {
-            echo "error" . mysqli_error($connect);
-        }
-        $sqlBookAuthors = "DELETE FROM booksauthors wHere id = $id_to_delete";
-        mysqli_query($connect,$sqlBookAuthors);
+        $res = mysqli_query($connect,$sql);
 
+        $authors1 = mysqli_fetch_assoc($res);
+        print_r($authors1);
     }
+
+if(isset($_POST['add']))
+{
     
-    
-   
-    if(isset($_POST['modify']))
+    $sql = "UPDATE authors SET name='$title', Birthday='$birthday', image='$image' WHERE id='$id' ";
+
+    if(mysqli_query($connect,$sql))
     {
-        header("location: modifyAuthors.php");
+        header("location: authors.php");
     }
-    // echo print_r($authors);
+    else
+    {
+        echo "error" . mysqli_error($connect);
+    }
+    
+    
+}
+
+
+  
 
     
 
@@ -104,8 +90,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
     <link rel="stylesheet" href="css/gallery.css">
-    <link rel="stylesheet" href="css/athors.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -135,7 +120,7 @@
 
 <div id="menuMobile" class="menuMobile">
 <ul class="mobile">
-    <li class="mb"><a href="index.html">HOME</a></li>
+    <li class="mb"><a href="Home/index.html">HOME</a></li>
     <li class="mb"><a href="gallery.php">GALLERY</a></li>
     <li class="mb"><a href="index.php">BOOKS</a></li>
     <li class="mb"><a href="authors.php">AUTHORS</a></li>
@@ -143,98 +128,47 @@
 </div>
 
         <!-- the end of navbar -->
-
+       
+   
+    
+    
+   
     <!-- the start of add books -->
-    <form action="" method="post"> 
+    <form action="modifyAuthors.php?id=<?php echo $id ?>" method="post"> 
     <div class="gen">
         <div class="title">
-            <h1 class="add" >ADD AUTHORS</h1>
+            <h1 class="add" >EDIT Authoes</h1>
         </div>
         
         <div class="first">
-            <h1 class="name">NAME : </h1>
-        <input type="text" name="name" id="input_name">
-        <label> <?php echo $errors1['name'];?></label>
+            <h1 class="tl">Title : </h1>
+        <input type="text" name="name" id="input_title" value="<?php echo $authors1['name'];?>">
+        <label> <?php echo $errors1['name'] ?></label>
         </div>
+
 
         <div class="second">
             <h1 class="birthday">BIRTHDAY : </h1>
-        <input type="text" name="birthday" id="input_birthday">
+        <input type="text" name="birthday" id="input_price" value="<?php echo $authors1['Birthday'];?>">
         <label> <?php echo $errors1['birthday'];?></label>
         </div>
 
-        <!-- <div class="third">
-            <h1 class="pd_date">PRODUCTION DATE : </h1>
-        <input type="text" name="pd_date" id="input_date">
-        </div> -->
-
         <div class="fourd">
-            <h1 class="UPLOAD_Authors">UPLOAD AuthorsIMAGE : </h1>
+            <h1 class="UPLOAD_BOOKS">UPLOAD BOOKIMAGE : </h1>
             <form class="form" action="#">
-                <input type="file" name="image" id="input_upload">
-                <label> <?php echo $errors1['image'] ?></label>
+                <input type="file" name="image" id="input_upload" value="<?php echo $authors1['image'];?>">
             </form>
             <!-- <input type="submit" name="submit" id="submit"> -->
         </div>
         
         <div class="icon">
-            <button name="add" ><img class="icon_image"  src="images/icon_plus.png" alt="add"></button>
+            <!-- <button name="add" ><img class="icon_image"  src="images/icon_plus.png" alt="add"></button> -->
+            <button class="add" name="add" value="">Save Change</button>
         </div>
     </div>
     </form>
     <!-- the end of add books -->
 
-    <div class="author">
-        <h1 class="au">Authors</h1>
-    </div>
-
-    <div class="allAuthors">
-        <!-- <div class="id">
-
-        </div>
-        <div class="Title">
-
-        </div>
-        <div class="price">
-
-        </div>
-        <div class="prodDate">
-
-        </div>
-        <div class="image">
-            <img src="#" alt="Modify" class="modify">
-            <img src="#" alt="Delete" class="delete">
-        </div> -->
-        
-
-        <form action="" method="post">
-<table >
-    <tr>
-      <th>ID</th>
-      <th>Name</th> 
-      <th>Birthday</th>
-      <th>Image</th>
-      <th>Modify</th>
-      <th>Delete</th>
-    </tr>
-    
-    <?php  foreach($authors as $au){ ?>
-    <tr>
-      <td><?php echo $_SESSION['id_authors'] = $au['id']?></td>
-      <td><?php echo $au['name']?></td>
-      <td><?php echo $au['Birthday']?></td>
-      <td><?php echo "<img src='images/".$au['image']."' />"?></td>
-      <!-- <td><button><img  src="images/pen.svg" alt="modify" class="modify"></button></td> -->
-      <!-- <td><button><img class="delete" src="images/trash.svg" alt="Delete" ></button></td> -->
-      <td><a name="modify" href="modifyAuthors.php?id=<?php echo $au['id']?>"><img  src="images/pen.svg"  name="modify" alt="modify" ></a></td>
-      <td><button name="Delete" value='<?php echo $au['id'] ?>'><img class="delete" name="Delete"  src="images/trash.svg"></button></td>
-    </tr>
-    <?php };?>
-    
-  </table>
-  </form>
-    </div>
-    
     
     <footer>
       <div class="para">
