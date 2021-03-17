@@ -88,6 +88,7 @@
 
 .genGallery, #Dont, #I, #care {
   width: 80%;
+  max-height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,6 +99,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow-y: hidden;
+  padding: 8px;
 }
 
 .genGallery .book1, #Dont .book1, #I .book1, #care .book1 {
@@ -119,13 +122,6 @@
   width: 263px;
 }
 
-.genGallery .book1 .image1 img:hover, #Dont .book1 .image1 img:hover, #I .book1 .image1 img:hover, #care .book1 .image1 img:hover {
-  -webkit-filter: grayscale(2);
-          filter: grayscale(2);
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
 .genGallery .book1 .nameOfBook1, #Dont .book1 .nameOfBook1, #I .book1 .nameOfBook1, #care .book1 .nameOfBook1 {
   margin: 4px auto;
 }
@@ -144,6 +140,18 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
+}
+
+.genGallery .book1:hover, #Dont .book1:hover, #I .book1:hover, #care .book1:hover {
+  -webkit-filter: grayscale(2);
+          filter: grayscale(2);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.genGallery:hover {
+  padding: 8px;
+  position: relative;
 }
 
 /*responsive nav bar*/
@@ -301,5 +309,71 @@ footer a:hover {
         flex-wrap: wrap;
     margin: 2px auto;
   }
+}
+
+.addAuthorsOrDeleteThem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 80%;
+  background-color: white;
+  color: black;
+  margin: 0px auto;
+  border-radius: 7px;
+}
+
+.addAuthorsOrDeleteThem .addAuthors {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #b48686;
+  gap: 20px;
+  padding: 10px;
+}
+
+.addAuthorsOrDeleteThem .deleteAuthors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto 0px;
+  gap: 10px;
+}
+
+.addAuthorsOrDeleteThem .deleteAuthors #titleDelete {
+  font-size: 25px;
+  margin: auto 0px;
+}
+
+.addAuthorsOrDeleteThem .deleteAuthors button {
+  height: 30px;
+  width: 90px;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+}
+
+.btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.btn .send {
+  width: 100px;
+  height: 30px;
+  margin: 10px auto;
 }
 /*# sourceMappingURL=gallery.css.map */

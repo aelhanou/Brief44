@@ -4,7 +4,7 @@
 
 <?php 
     
-    $title = $price = $pd_date = $image = '';
+    $title = $price = $pd_date = $image = $au = $id_authors='';
     include('db_connect.php');
     
     $errors = array('name' => '','price' => '','pd_date' => '','input_upload' => '');
@@ -83,6 +83,23 @@
 
 }
 
+ 
+
+    
+
+
+$s = "SELECT * FROM books";
+$r = mysqli_query($connect,$s);
+$book = mysqli_fetch_all($r, MYSQLI_ASSOC);
+
+// $id_book = $book[count($book) - 1]['id'];
+// print_r($books);
+
+
+$sqlauthors = "SELECT * FROM authors";
+$res = mysqli_query($connect,$sqlauthors);
+$arr = mysqli_fetch_all($res,MYSQLI_ASSOC);
+
     if(isset($_GET['id']))
     {
         $id = $_GET['id'];
@@ -95,27 +112,21 @@
 
     }
 
+
+    $img = $books['Image'];
+    
 // $index = $_SESSION['index'];
 if(isset($_POST['add']))
 {
-    //$modify = mysqli_real_escape_string($connect,$_POST['modify']);
-    
-    // $id = $books[$index]['id'];
-    
-    // $title = $books[$index]['title'];
-    // $price = $books[$index]['price'];
-    // $Producte_Date = $books[$index]['Producte_Date'];
-    // $Image = $books[$index]['Image'];
-
-    // echo $id;
-    // echo $title;
-    // echo $price;
-    // echo $Producte_Date;
-    // echo $Image;
-
-    // var_dump($id);
-
-    $sql = "UPDATE books SET title='$title', price='$price', Producte_Date='$pd_date', Image='$image' WHERE id='$id' ";
+  
+    if($image == '')
+    {
+        $sql = "UPDATE books SET title='$title', price='$price', Producte_Date='$pd_date', Image='$img' WHERE id='$id' ";
+    }
+    else
+    {
+        $sql = "UPDATE books SET title='$title', price='$price', Producte_Date='$pd_date', Image='$image' WHERE id='$id' ";   
+    }
 
     if(mysqli_query($connect,$sql))
     {
@@ -125,10 +136,66 @@ if(isset($_POST['add']))
     {
         echo "error" . mysqli_error($connect);
     }
-    
-    
+        
+   
 }
 
+$id = $_GET['id'];
+// echo $id;
+    
+    if(isset($_POST['send']))
+    {
+        
+       
+            
+        
+        $au = mysqli_real_escape_string($connect,$_POST['authors']);
+
+        
+        $nameOfAuthors = "SELECT * FROM authors";
+        $sqlAuthors = mysqli_query($connect,$nameOfAuthors);
+        $resAuthors = mysqli_fetch_all($sqlAuthors, MYSQLI_ASSOC);
+
+        for($i = 0;$i< count($resAuthors);$i++)
+        {
+            if($au == $resAuthors[$i]['name'])
+            {
+                $id_authors =   $resAuthors[$i]['id'];
+            }
+        }
+        
+        //  echo "id = " . $id;
+        //  echo "au = " .$au;
+        //  echo "id_authors = " .$id_authors;
+        
+        $sqlAuthorsBooks = "INSERT INTO booksauthors(id_books,id_authors) VALUES($id,$id_authors)";
+        mysqli_query($connect,$sqlAuthorsBooks);
+    }
+
+    if(isset($_POST['dlt']))
+    {
+        $au = mysqli_real_escape_string($connect,$_POST['authors']);
+
+        $nameOfAuthors = "SELECT * FROM authors";
+        $sqlAuthors = mysqli_query($connect,$nameOfAuthors);
+        $resAuthors = mysqli_fetch_all($sqlAuthors, MYSQLI_ASSOC);
+
+        for($i = 0;$i< count($resAuthors);$i++)
+        {
+            if($au == $resAuthors[$i]['name'])
+            {
+                $id_authors =   $resAuthors[$i]['id'];
+            }
+        }
+        
+        //  echo "id = " . $id;
+        //  echo "au = " .$au;
+        //  echo "id_authors = " .$id_authors;
+        
+        $sqlAuthorsBooks = "DELETE FROM booksauthors WHERE id_authors ='$id_authors'";
+        mysqli_query($connect,$sqlAuthorsBooks);
+
+    }
 
     // if(isset($_POST['add']))
     // {
@@ -262,6 +329,7 @@ if(isset($_POST['add']))
             <h1 class="UPLOAD_BOOKS">UPLOAD BOOKIMAGE : </h1>
             <form class="form" action="#">
                 <input type="file" name="input_upload" id="input_upload" value="<?php echo $books['Image'] ?>">
+                
                 <label> <?php echo $errors['input_upload'] ?></label>
             </form>
             <!-- <input type="submit" name="submit" id="submit"> -->
@@ -274,8 +342,31 @@ if(isset($_POST['add']))
     </div>
     </form>
     <!-- the end of add books -->
-
     
+        
+            <form action="modify.php?id=<?php echo $id ?>" method="post">
+    <div class="addAuthorsOrDeleteThem">
+    
+            <div class="addAuthors">
+                <h1 class="authors">AUTHORS : </h1>
+                <select name="authors" id="selectAuthors" >
+                <option >Authors Choice</option>
+                <?php foreach($arr as $au) {?><option ><?php echo $au['name']?></option><?php }?>
+            </select>
+            </div>
+
+            <div class="deleteAuthors">
+            <label id="titleDelete">Delete : </label>
+            <button type="submit" name="dlt">DELETE</button>
+            
+            
+            
+            </div>
+    </div>
+            <div class="btn">
+            <button class="send" name="send" >Select</button>
+            </div>
+    </form>
     <footer>
       <div class="para">
       <p class="s-media">Social Media</p>

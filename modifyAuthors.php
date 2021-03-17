@@ -30,9 +30,9 @@
         else
         {
             $birthday = mysqli_real_escape_string($connect,$_POST['birthday']);
-            if(!preg_match('/^[0-9]{4}-[0-9]{2}|[0-9]{1}-[0-9]{2}$/',$birthday))
-            {
-                //$errors1['birthday'] ="the name in not valid";
+            
+            if (!preg_match('/^[0-9]{4}-[0-9]{2}|[0-9]{1}-[0-9]{2}$/',$birthday)) {
+                $errors1['birthday'] ="the date in not valid";
             }
         }
         
@@ -56,27 +56,37 @@
         $res = mysqli_query($connect,$sql);
 
         $authors1 = mysqli_fetch_assoc($res);
-        print_r($authors1);
+       
     }
 
-if(isset($_POST['add']))
-{
-    
-    $sql = "UPDATE authors SET name='$title', Birthday='$birthday', image='$image' WHERE id='$id' ";
+    $img = $authors1['image'];
+if(!array_filter($errors1)){
 
-    if(mysqli_query($connect,$sql))
+    if(isset($_POST['add']))
     {
-        header("location: authors.php");
+        
+        if($image == '')
+        {
+            $sql = "UPDATE authors SET name='$title', Birthday='$birthday', image='$image' WHERE id='$id' ";
+        }
+        else
+        {
+            $sql = "UPDATE authors SET name='$title', Birthday='$birthday', image='$img' WHERE id='$id' ";
+        }
+
+        if(mysqli_query($connect,$sql))
+        {
+            header("location: authors.php");
+        }
+        else
+        {
+            echo "error" . mysqli_error($connect);
+        }
+        
+        
     }
-    else
-    {
-        echo "error" . mysqli_error($connect);
-    }
-    
-    
+
 }
-
-
   
 
     
@@ -157,6 +167,7 @@ if(isset($_POST['add']))
             <h1 class="UPLOAD_BOOKS">UPLOAD BOOKIMAGE : </h1>
             <form class="form" action="#">
                 <input type="file" name="image" id="input_upload" value="<?php echo $authors1['image'];?>">
+                <label> <?php echo $errors1['image'] ?></label>
             </form>
             <!-- <input type="submit" name="submit" id="submit"> -->
         </div>

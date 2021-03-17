@@ -1,3 +1,6 @@
+<?php 
+    include('db_connect.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,6 +335,31 @@
     </div>
 
 
+
+
+    <div id="Care" class="genGallery">
+
+    <?php foreach($books as $rs) {?>
+        <div name="book1"  class="book1">
+
+            <div class="image1">
+            <?php echo "<img src='images/".$rs['Image']."' alt='Bookimage1'>"?>
+            </div>
+            <div class="nameOfBook1">
+                <h3 class="namebk1"><?php echo  $rs['title']?></h3>
+            </div>
+            <div class="PriceDate1">
+                <div class="date1">
+                    <h3 class="dt1"><?php echo  $rs['Producte_Date']?></h3>
+                </div>
+
+                <div class="price1">
+                    <h3  class="pr1">PRIX : <span name="pr1" ><?php echo  $rs['price']?></span>$</h3>
+                </div>
+            </div>
+        </div>
+        <?php }?>
+    </div>
     <footer>
       <div class="para">
       <p class="s-media">Social Media</p>

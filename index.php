@@ -135,9 +135,11 @@
         
         $id_to_delete = mysqli_real_escape_string($connect,$_POST['Delete']);
 
-        $sql = "DELETE FROM books WHERE id = $id_to_delete";
-
-        if(mysqli_query($connect,$sql))
+        //$sql = "DELETE FROM books WHERE id = $id_to_delete";
+        // echo $id_to_delete;
+        $sqlBookAuthors = "DELETE FROM booksauthors WHERE id_books = $id_to_delete";
+              
+        if(mysqli_query($connect,$sqlBookAuthors))
         {
             header("location: index.php");
         }
@@ -145,8 +147,7 @@
         {
             echo "error" . mysqli_error($connect);
         }
-        $sqlBookAuthors = "DELETE FROM booksauthors wHere id = $id_to_delete";
-              mysqli_query($connect,$sqlBookAuthors);
+        
 
     }
 
