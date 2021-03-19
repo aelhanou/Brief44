@@ -88,7 +88,6 @@
 
 .genGallery, #Dont, #I, #care {
   width: 80%;
-  max-height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,7 +112,6 @@
 }
 
 .genGallery .book1 .image1, #Dont .book1 .image1, #I .book1 .image1, #care .book1 .image1 {
-  overflow: hidden;
   width: 264px;
 }
 
